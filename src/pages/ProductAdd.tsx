@@ -2,7 +2,6 @@
 import { useForm ,SubmitHandler} from "react-hook-form";
 import {ProductType} from "../types/product";
 import {useNavigate} from 'react-router-dom';
-import Menu from '../components/Menu'
 
 
 type ProductAddProps = {
