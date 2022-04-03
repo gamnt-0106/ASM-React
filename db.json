@@ -19,6 +19,11 @@
       "name": "gamnt",
       "price": "12334556",
       "id": 5
+    },
+    {
+      "name": "Kids men",
+      "price": "200000",
+      "id": 6
     }
   ]
 }

@@ -54,8 +54,8 @@ function App() {
   return ( 
     <Routes>
       <Route path="/" element={<WebsiteLayout />}>
-          <Route index element={<Home />} />
-          <Route path="product" element={<Product />} />
+      <Route index element={<Home products={products}/>} />
+          <Route path="product" element={<Product products={products} />} />
           <Route path="signup" element={<Signup />}/>
           <Route path="signin" element={<Signin />}/>
       </Route>
