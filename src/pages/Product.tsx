@@ -32,7 +32,7 @@ const Product = (props: ProductProps) => {
                           <li><a href="single-product.html"><i className="fa fa-shopping-cart"></i></a></li>
                         </ul>
                       </div>
-                      <img src="src/images/kid-02.jpg" alt="" />
+                      <img src="src/images/men-01.jpg" alt="" />
                     </div>
                     <div className="down-content">
                       <h4>{product.name}</h4>

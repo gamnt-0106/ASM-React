@@ -24,6 +24,11 @@
       "name": "Kids men",
       "price": "200000",
       "id": 6
+    },
+    {
+      "name": "WOmen abcc",
+      "price": "12345",
+      "id": 7
     }
   ]
 }
