@@ -2,18 +2,13 @@
   "products": [
     {
       "name": "vanh",
-      "price": "2345",
+      "price": "1234",
       "id": 2
     },
     {
       "name": "ACBBB",
       "price": 3000,
       "id": 3
-    },
-    {
-      "name": "ádfghhjjk",
-      "price": "12345",
-      "id": 4
     },
     {
       "name": "gamnt",
