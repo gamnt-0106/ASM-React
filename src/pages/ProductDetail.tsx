@@ -3,6 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { ProductType } from '../types/productDetail'
 import { read } from '../api/product';
+import img from 'src/images/single-product-01.jpg'
+import imga from 'src/images/single-product-02.jpg'
 // import 'src/css/bootstrap.min.css'
 // import '../src/assets/css/flex-slider.css'
 // import '../src/assets/css/font-awesome.css'
@@ -41,6 +43,7 @@ const ProductDetail = (props: ProductDetailProps) => {
                 <img src="src/images/single-product-01.jpg" />
                 <img src="src/images/single-product-02.jpg" />
               </div>
+            
             </div>
             <div className="col-lg-4">
               <div className="right-content">
