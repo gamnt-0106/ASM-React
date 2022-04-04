@@ -1,7 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Header from '../../components/Header'
-import Menu from '../../components/Menu'
+
 
 type Props = {}
 
@@ -9,7 +9,7 @@ const AdminLayout = (props: Props) => {
   return (
     <div>
         <header>
-           <Menu />
+         Header Admin
         </header>
         <aside>
             Menu Admin
