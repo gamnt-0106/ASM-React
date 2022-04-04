@@ -40,8 +40,8 @@ const ProductDetail = (props: ProductDetailProps) => {
           <div className="row">
             <div className="col-lg-8">
               <div className="left-images">
-                <img src="src/images/single-product-01.jpg" />
-                <img src="src/images/single-product-02.jpg" />
+              <img src={img} />
+              <img src={imga} />
               </div>
             
             </div>
