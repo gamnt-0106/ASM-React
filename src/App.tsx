@@ -13,12 +13,12 @@ import ManagerProduct from './pages/ManagerProduct';
 import WebsiteLayout from './pages/layouts/websiteLayout';
 import AdminLayout from './pages/layouts/AdminLayout';
 import "bootstrap/dist/css/bootstrap.min.css"
-import Detail from './pages/Detail';
+import Detail from './pages/ProductDetail';
 import ProductAdd from './pages/ProductAdd';
 import ProductEdit from './pages/ProductEdit';
 import Signin from './pages/Signin';
 import Signup from './pages/Signup';
-
+import ProductDetail from './pages/ProductDetail'
 
 
 function App() {
@@ -54,6 +54,9 @@ function App() {
   return ( 
     <Routes>
       <Route path="/" element={<WebsiteLayout />}>
+      <Route path="detail">
+            <Route path=":id/products" element={<ProductDetail products={products}/>} />
+      </Route>
       <Route index element={<Home products={products}/>} />
           <Route path="product" element={<Product products={products} />} />
           <Route path="signup" element={<Signup />}/>
