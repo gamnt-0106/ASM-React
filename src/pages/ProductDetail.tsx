@@ -3,8 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { ProductType } from '../types/productDetail'
 import { read } from '../api/product';
-import img from 'src/images/single-product-01.jpg'
-import imga from 'src/images/single-product-02.jpg'
+import img from "../images/explore-image-01.jpg";
+import imga from "../images/team-member-01.jpg";
 // import 'src/css/bootstrap.min.css'
 // import '../src/assets/css/flex-slider.css'
 // import '../src/assets/css/font-awesome.css'
@@ -40,8 +40,8 @@ const ProductDetail = (props: ProductDetailProps) => {
           <div className="row">
             <div className="col-lg-8">
               <div className="left-images">
-              <img src={img} />
-              <img src={imga} />
+                <img src={img} />
+                <img src={imga} />
               </div>
             
             </div>
