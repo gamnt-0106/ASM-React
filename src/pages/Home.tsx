@@ -21,7 +21,7 @@ const Home = (props: HomeProps) => {
                                                 <ul>
                                                     <li>
                                                         <a href="single-product.html">
-                                                            <Link to={`/detail/${product.id}/products`}><i className="fa fa-eye"></i></Link>
+                                                            <Link to={`/detail/${product._id}/products`}><i className="fa fa-eye"></i></Link>
                                                         </a>
                                                     </li>
                                                     <li><a href="single-product.html"><i className="fa fa-star"></i></a></li>
