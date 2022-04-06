@@ -37,13 +37,13 @@ const Menu = (props: Props) => {
       <NavLink className="nav-link" to="/detal">detal test</NavLink>
       </li> */}
       <li className="scroll-to-section">
-      <NavLink className="nav-link" to="/">Contact Us</NavLink>
-      </li>
-      <li className="scroll-to-section">
-      <NavLink className="nav-link" to="/">Category</NavLink>
-      </li>
-      <li className="scroll-to-section">
       <NavLink className="nav-link" to="/admin">Dashboard</NavLink>
+      </li>
+      <li className="scroll-to-section">
+      <NavLink className="nav-link" to="/signin">Signin</NavLink>
+      </li>
+      <li className="scroll-to-section">
+      <NavLink className="nav-link" to="/signup">Signup</NavLink>
       </li>
       <li className="scroll-to-section">
       <NavLink className="nav-link" to="/admin/product">Manager Product</NavLink>

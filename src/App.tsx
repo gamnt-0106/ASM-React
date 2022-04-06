@@ -18,6 +18,11 @@ import ProductEdit from './pages/ProductEdit';
 import Signin from './pages/Signin';
 import Signup from './pages/Signup';
 import ProductDetail from './pages/ProductDetail'
+import CategoryManager from './pages/CategoryManager';
+import CategoryAdd from './pages/CategoryAdd';
+import CategoryEdit from './pages/CategoryEdit';
+import { CategoryType } from './types/Category';
+
 
 
 function App() {
@@ -36,7 +41,7 @@ function App() {
     // xoa tren API
      await remove(id);
     // reRender
-    setProducts(products.filter(item => item.id !== id));
+    setProducts(products.filter(item => item._id !== id));
   }
   const onHandleAdd = async (product:ProductType) =>{
     //call api 
@@ -49,6 +54,39 @@ function App() {
    const { data } = await update(product)
    setProducts(products.map(item => item._id == data.id ? data : item));
 }
+
+//// category
+const [Categorys,setCategorys] = useState <CategoryType[]>([]);
+
+useEffect(() => {
+    const getCategory = async () =>{
+      const {data} = await  list();
+      setCategorys(data);
+    }
+    getCategory();
+},[])
+// xoa
+const onCategoryRemove = async (id:number) =>{
+  await remove(id);
+  //reRender
+  setCategorys (Categorys.filter(item => item._id !== id));
+}
+
+const onCategoryAdd =async (Category:CategoryType) => {
+  //call api
+  const {data} = await add(Category);
+  setCategorys([...Categorys,data])
+}
+
+//update
+const onCategoryUpdate = async (Category:CategoryType) =>{
+  console.log(Category);
+  const {data} = await update(Category);
+  setCategorys(Categorys.map(item => item._id == data.id ? data:item));
+  
+}
+
+/////
 
   return ( 
     <Routes>
@@ -68,6 +106,12 @@ function App() {
           <Route index element={<ManagerProduct data={products} onRemove={onHandleRemove}/>} />
           <Route path="add" element={<ProductAdd onAdd={onHandleAdd}/>} />
           <Route path=":id/edit" element={<ProductEdit onUpdate={onHandleUpdate}/>} />
+      </Route>
+      <Route path='Category'>
+      <Route index element={<CategoryManager data={Categorys} onRemove={onCategoryRemove}/>} />
+          <Route path="add" element={<CategoryAdd onAdd={onCategoryAdd}/>} />
+          <Route path=":id/edit" element={<CategoryEdit onUpdate={onCategoryUpdate}/>} />
+
       </Route>
       </Route>
     </Routes>
