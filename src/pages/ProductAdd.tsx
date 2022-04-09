@@ -8,6 +8,8 @@ type FormValues = {
     name: string,
     price: number,
     desc: string,
+    img:string
+
 };
 const ProductAdd = (props: ProductAddProps) => {
     const { register, handleSubmit, formState: { errors } } = useForm<FormValues>()

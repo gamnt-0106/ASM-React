@@ -14,7 +14,7 @@ const CategoryAdd = (props: CategoryAddProps) => {
     const Navigate = useNavigate();
     const onSubmit: SubmitHandler<FormValues> = (data) => {
         props.onAdd(data);
-        Navigate('/admin/Category');
+        Navigate('/admin/category');
     }
     return (
         <div>

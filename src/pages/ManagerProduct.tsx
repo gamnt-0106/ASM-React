@@ -17,6 +17,7 @@ const ManagerProduct = (props: ManagerProductProps) => {
               <th>#</th>
               <th>Name</th>
               <th>Price</th> 
+              <th>IMG</th> 
                <th>Action</th>
             </tr>
           </thead>
@@ -25,6 +26,7 @@ const ManagerProduct = (props: ManagerProductProps) => {
               return <tr key ={index}>
                 <td>{index+1}</td>
                 <td>{item.name}</td>
+                <td>{item.img}</td>
                 <td>{item.price}</td>
                 <Link to={`/admin/product/${item._id}/edit`}>Edit</Link>
                 <button onClick={() => props.onRemove(item._id)}>Remove</button>

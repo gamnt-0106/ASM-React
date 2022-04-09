@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
-import { read } from '../api/Category';
+import { readCate } from '../api/Category';
 import { CategoryType } from '../types/Category';
 
 type CategoryEditProps = {
@@ -9,8 +9,8 @@ type CategoryEditProps = {
 }
 type FormInputs = {
 
-    name: string,
-    price: number
+    name: string
+   
 }
 
 const CategoryEdit = (props: CategoryEditProps) => {
@@ -20,22 +20,22 @@ const CategoryEdit = (props: CategoryEditProps) => {
 
     useEffect(() => {
         const getCategory = async () => {
-            const { data } = await read(id);
+            const { data } = await readCate(id);
             reset(data);
         }
         getCategory();
-    }, []);
+    }, [id]);readCate
 
     const onSubmit: SubmitHandler<FormInputs> = data => {
         
         props.onUpdate(data);
-        navigate('/admin/Category');
+        navigate('/admin/category');
     } 
     
   return (
     <form action="" onSubmit={handleSubmit(onSubmit)}>
-        <input type="text" placeholder='Tên sản phẩm' {...register('name')}/>
-        <input type="number" placeholder='Giá sản phẩm' {...register('price')}/>
+        <input type="text" placeholder='Tên danh mục' {...register('name')}/>
+        
         <button>Update</button>
     </form>
   )

@@ -5,6 +5,7 @@ import './App.css'
 import ShowInfo from './components/showinfo'
 import type { ProductType } from './types/product';
 import { add, list, remove, update } from './api/product';
+import {listCate,addCate,removeCate, updateCate} from './api/Category'
 import { Navigate, NavLink, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Product from './pages/Product';
@@ -22,12 +23,14 @@ import CategoryManager from './pages/CategoryManager';
 import CategoryAdd from './pages/CategoryAdd';
 import CategoryEdit from './pages/CategoryEdit';
 import { CategoryType } from './types/Category';
-
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.min.css"
 
 
 function App() {
   const [products, setProducts] = useState<ProductType[]>([]); // 1 destructuring [ ] = uesState (data,() =)
   // const [count, setCount] = useState<number>(0);
+const [Categorys,setCategorys] = useState <CategoryType[]>([]);
   
   useEffect(() => { // 3 call tới api
      const getProducts = async () => {
@@ -35,6 +38,14 @@ function App() {
         setProducts(data);
      }
      getProducts();
+
+     const getCategory = async () =>{
+      const {data} = await  listCate();
+      console.log(data);
+      
+      setCategorys(data);
+    }
+    getCategory();
   },[])
 
   const onHandleRemove = async (id: number) => {
@@ -56,32 +67,25 @@ function App() {
 }
 
 //// category
-const [Categorys,setCategorys] = useState <CategoryType[]>([]);
 
-useEffect(() => {
-    const getCategory = async () =>{
-      const {data} = await  list();
-      setCategorys(data);
-    }
-    getCategory();
-},[])
+
 // xoa
 const onCategoryRemove = async (id:number) =>{
-  await remove(id);
+  await removeCate(id);
   //reRender
   setCategorys (Categorys.filter(item => item._id !== id));
 }
 
 const onCategoryAdd =async (Category:CategoryType) => {
   //call api
-  const {data} = await add(Category);
+  const {data} = await addCate(Category);
   setCategorys([...Categorys,data])
 }
 
 //update
 const onCategoryUpdate = async (Category:CategoryType) =>{
   console.log(Category);
-  const {data} = await update(Category);
+  const {data} = await updateCate (Category);
   setCategorys(Categorys.map(item => item._id == data.id ? data:item));
   
 }
@@ -107,7 +111,7 @@ const onCategoryUpdate = async (Category:CategoryType) =>{
           <Route path="add" element={<ProductAdd onAdd={onHandleAdd}/>} />
           <Route path=":id/edit" element={<ProductEdit onUpdate={onHandleUpdate}/>} />
       </Route>
-      <Route path='Category'>
+      <Route path='category'>
       <Route index element={<CategoryManager data={Categorys} onRemove={onCategoryRemove}/>} />
           <Route path="add" element={<CategoryAdd onAdd={onCategoryAdd}/>} />
           <Route path=":id/edit" element={<CategoryEdit onUpdate={onCategoryUpdate}/>} />

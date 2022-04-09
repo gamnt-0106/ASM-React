@@ -11,7 +11,7 @@ const AdminLayout = (props: Props) => {
         <div className="sidebar">
           <div className="logo-details">
             <i className="bx bxl-c-plus-plus" />
-            <span className="logo_name">CodingLab</span>
+            <span className="logo_name">ADMIN</span>
           </div>
           <ul className="nav-links">
             <li>
@@ -21,15 +21,15 @@ const AdminLayout = (props: Props) => {
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="/admin/product">
                 <i className="bx bx-box" />
                 <span className="links_name">Product</span>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="/admin/category">
                 <i className="bx bx-list-ul" />
-                <span className="links_name">Order list</span>
+                <span className="links_name">Category</span>
               </a>
             </li>
             <li>
@@ -154,7 +154,7 @@ const AdminLayout = (props: Props) => {
                 </main>
                 <br />
                 <div className="button">
-                  <a href="http://localhost:3000/admin/product/add">Thêm Sản Phẩm </a>
+                  <a href="http://localhost:3000/admin/product/add">Thêm  </a>
                   <a href="http://localhost:3000/admin/product">Quay Lại </a>
                 </div>
                 <div className="button">

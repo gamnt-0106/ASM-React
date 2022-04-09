@@ -1,23 +1,31 @@
-import { useForm, SubmitHandler } from "react-hook-form";
+import React from 'react'
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { signin, signup } from '../api/auth';
+import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-import { signin, signup } from "../api/auth";
-import { authenticate } from "../utils/localStorage";
 
-type FormValues = {
-    name: string,
+type FormInputs = {
     email: string,
-    password: string
-};
+    password: string | number
+}
+
 const Signin = () => {
-    const { register, handleSubmit, formState: { errors}} = useForm<FormValues>();
+    const { register, handleSubmit, formState: { errors } } = useForm<FormInputs>();
     const navigate = useNavigate();
-    const onSubmit: SubmitHandler<FormValues> = async (data) => {
-        const {data: user } = await signin(data);
-        authenticate(user, () => navigate('/'))
+
+    const onSumbit: SubmitHandler<FormInputs> = async (user) => {
+        const { data } = await signin(user);
+        if (data) {
+            toast.success("Vui lòng chờ giây lát !");
+            setTimeout(() => {
+                navigate('/admin')
+                localStorage.setItem("user", JSON.stringify(data))
+            }, 3000)
+        }
     }
   return (
       <div>
-           <form onSubmit={handleSubmit(onSubmit)}>
+           <form onSubmit={handleSubmit(onSumbit)}>
                
                 <div className="mb-3">
                     <label htmlFor="exampleInputPassword1" className="form-label">Email</label>
@@ -27,8 +35,9 @@ const Signin = () => {
                     <label htmlFor="exampleInputPassword1" className="form-label">Pass</label>
                     <input type="password" {...register('password')} className="form-control" id="exampleInputPassword1"/>
                 </div>
-                <button type="submit" href="/" className="btn btn-primary">Submit</button>
+                <button type="submit" href="/admin" className="btn btn-primary">Submit</button>
             </form>
+            <ToastContainer />
       </div>
     // <div>
     //     <form onSubmit={handleSubmit(onSubmit)}>
