@@ -15,8 +15,7 @@ const CategoryManager = (props: CategoryManagerProps) => {
           <thead>
             <tr>
               <th>#</th>
-              <th>Name</th>
-              <th>Price</th> 
+              <th>Name</th> 
                <th>Action</th>
             </tr>
           </thead>

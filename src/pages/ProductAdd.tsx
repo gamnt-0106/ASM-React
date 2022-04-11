@@ -8,7 +8,7 @@ type FormValues = {
     name: string,
     price: number,
     desc: string,
-    img:string
+    // img:string
 
 };
 const ProductAdd = (props: ProductAddProps) => {

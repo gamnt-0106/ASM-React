@@ -37,7 +37,7 @@ const Product = (props: ProductProps) => {
                     <div className="down-content">
                       <h4>{product.name}</h4>
                       <span>{product.price}</span>
-                      <span>{product.img}</span>
+                      {/* <span>{product.img}</span> */}
                       <ul className="stars">
                         <li><i className="fa fa-star"></i></li>
                         <li><i className="fa fa-star"></i></li>
