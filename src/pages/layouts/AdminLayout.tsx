@@ -154,8 +154,8 @@ const AdminLayout = (props: Props) => {
                 </main>
                 <br />
                 <div className="button">
-                  <a href="http://localhost:3000/admin/product/add">Thêm  </a>
-                  <a href="http://localhost:3000/admin/product">Quay Lại </a>
+                  <a href="http://localhost:3000/admin/category/add">Thêm  </a>
+                  <a href="http://localhost:3000/admin/category">Quay Lại </a>
                 </div>
                 <div className="button">
                  

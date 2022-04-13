@@ -35,7 +35,7 @@ const Signin = () => {
                     <label htmlFor="exampleInputPassword1" className="form-label">Pass</label>
                     <input type="password" {...register('password')} className="form-control" id="exampleInputPassword1"/>
                 </div>
-                <button type="submit" href="/admin" className="btn btn-primary">Submit</button>
+                <button type="submit" href="" className="btn btn-primary">Submit</button>
             </form>
             <ToastContainer />
       </div>
